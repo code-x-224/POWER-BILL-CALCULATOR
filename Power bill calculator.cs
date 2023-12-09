@@ -9,9 +9,9 @@ class Program
         do
         {
             // initialization of the program
-            Console.WriteLine("Welcome to the power billing system");
+            Console.WriteLine("\tWelcome to the power billing system");
             Console.WriteLine("Below are the types of usage with their respective codes");
-            Console.WriteLine("1 Residential");
+            Console.WriteLine("\n1 Residential");
             Console.WriteLine("2 Commercial");
             Console.WriteLine("3 Industrial");
 
@@ -85,25 +85,46 @@ class Program
                 IndustrialBillingAlgorithm(monthlyConsumption);
             }
 
-            Console.Write("Rerun power bill calculator?");
-            string run = Console.ReadLine();
             bool proceed = true;
-
-            while(proceed)
+            while (proceed)
             {
+                Console.Write("\nRerun power bill calculator? (Y/N)");
+                string run = Console.ReadLine();
                 switch (run.ToUpper())
-                case "Y" || "YES":
-                    proceed = false;
-                    break;
-                case "N" || "NO":
-                    running = false;
-                    proceed = false;
-                    break;
-                default:
-                    Console.WriteLine("Wrong input made!");
-                    break;
+                {
+                    case "YES":
+                        proceed = false;
+                        Console.Clear();
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
+                        break;
+                    case "Y":
+                        proceed = false;
+                        Console.Clear();
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
+                        break;
+                    case "NO":
+                        running = false;
+                        proceed = false;
+                        Console.WriteLine("Press enter to Exit");
+                        Console.ReadLine();
+                        break;
+                    case "N":
+                        running = false;
+                        proceed = false;
+                        Console.WriteLine("Press enter to Exit");
+                        Console.ReadLine();
+                        break;
+                    default:
+                        Console.WriteLine("Wrong input made!");
+                        Console.WriteLine("Press enter to Retry");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                }
             }
         } while (running);
 
-   }
+    }
 }
